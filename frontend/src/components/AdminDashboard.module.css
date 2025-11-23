@@ -1,0 +1,163 @@
+/* AdminDashboard.module.css */
+.dashboard {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 30px;
+  min-height: 100vh;
+  background-color: #f5f7fa;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.title {
+  color: #2c3e50;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.userAvatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: #85DCB8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+}
+
+.userName {
+  color: #2c3e50;
+  font-weight: 500;
+}
+
+.cardsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border-top: 4px solid transparent;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.card.doctors {
+  border-top-color: #85DCB8;
+}
+
+.card.appointments {
+  border-top-color: #E8A87C;
+}
+
+.card.blogs {
+  border-top-color: #C38D9E;
+}
+
+.cardTitle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 15px;
+  color: #2c3e50;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.doctors .icon {
+  background-color: rgba(133, 220, 184, 0.1);
+  color: #85DCB8;
+}
+
+.appointments .icon {
+  background-color: rgba(232, 168, 124, 0.1);
+  color: #E8A87C;
+}
+
+.blogs .icon {
+  background-color: rgba(195, 141, 158, 0.1);
+  color: #C38D9E;
+}
+
+.cardContent {
+  color: #7f8c8d;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.cardStats {
+  display: flex;
+  justify-content: space-between;
+  color: #2c3e50;
+  font-weight: 500;
+}
+
+.recentActivity {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.sectionTitle {
+  color: #2c3e50;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.activityItem {
+  display: flex;
+  gap: 15px;
+  padding: 15px 0;
+  border-bottom: 1px solid #ecf0f1;
+}
+
+.activityIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.activityDetails {
+  flex-grow: 1;
+}
+
+.activityTime {
+  color: #95a5a6;
+  font-size: 13px;
+  margin-top: 5px;
+}

@@ -1,0 +1,23 @@
+# Node / React artifacts
+frontend/node_modules/
+frontend/.env
+frontend/build/
+frontend/.DS_Store
+
+# Logs
+*.log
+
+# IntelliJ / VSCode / Editors
+.idea/
+.vscode/
+
+# OS junk
+Thumbs.db
+Desktop.ini
+
+# Java / Maven build output
+backend/target/
+target/
+
+# Uploads (if generated)
+uploads/

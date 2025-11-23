@@ -1,0 +1,105 @@
+.auralisse-header {
+  background-color: var(--light-color);
+  box-shadow: var(--box-shadow);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+}
+
+.logo a {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--dark-color);
+  text-decoration: none;
+  font-family: 'Playfair Display', serif;
+}
+
+.main-nav ul {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: var(--dark-color);
+  font-weight: 500;
+  transition: color 0.3s;
+  font-size: 1rem;
+}
+
+.main-nav a:hover {
+  color: var(--primary-color);
+}
+
+.signup-btn {
+  background-color: var(--primary-color);
+  color: var(--light-color);
+  padding: 0.5rem 1.2rem;
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+
+.signup-btn:hover {
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+}
+
+.login-btn {
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  padding: 0.5rem 1.2rem;
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+
+.login-btn:hover {
+  background-color: var(--primary-color);
+  color: var(--light-color);
+}
+
+.mobile-menu {
+  display: none;
+  cursor: pointer;
+}
+
+.menu-icon {
+  font-size: 1.5rem;
+}
+
+/* Mobile Navigation */
+@media (max-width: 768px) {
+  .main-nav {
+    position: fixed;
+    top: 80px;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 80px);
+    background-color: var(--light-color);
+    transition: all 0.3s ease;
+    flex-direction: column;
+    padding: 2rem;
+  }
+
+  .main-nav.active {
+    left: 0;
+  }
+
+  .main-nav ul {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .mobile-menu {
+    display: block;
+  }
+}
