@@ -1,14 +1,21 @@
 package backend.controller;
 
-import backend.exception.AppointmentNotFoundException;
-import backend.model.Appointment;
-import backend.repository.AppointmentRepository;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
+import backend.Service.AppointmentService;
+import backend.model.Appointment;
 
 @RestController
 @CrossOrigin("http://localhost:3000") // Allow React frontend to access backend
@@ -16,48 +23,36 @@ import java.util.List;
 public class AppointmentController {
 
     @Autowired
-    private AppointmentRepository repository;
+    private AppointmentService appointmentService;
 
     // CREATE: Add new appointment
     @PostMapping
     public Appointment createAppointment(@RequestBody Appointment appointment) {
-        return repository.save(appointment);
+        return appointmentService.createAppointment(appointment);
     }
 
     // READ: Get all appointments
     @GetMapping
     public List<Appointment> getAllAppointments() {
-        return repository.findAll();
+        return appointmentService.getAllAppointments();
     }
 
     // READ: Get appointment by ID
     @GetMapping("/{id}")
     public Appointment getAppointmentById(@PathVariable Long id) {
-        return repository.findById(id)
-                .orElseThrow(() -> new AppointmentNotFoundException("Appointment not found with id: " + id));
+        return appointmentService.getAppointmentById(id);
     }
 
     // UPDATE: Update appointment by ID
     @PutMapping("/{id}")
     public Appointment updateAppointment(@PathVariable Long id, @RequestBody Appointment updatedAppointment) {
-        Appointment existingAppointment = repository.findById(id)
-                .orElseThrow(() -> new AppointmentNotFoundException("Appointment not found with id: " + id));
-
-        existingAppointment.setDoctorname(updatedAppointment.getDoctorname());
-        existingAppointment.setName(updatedAppointment.getName());
-        existingAppointment.setAppointmentDate(updatedAppointment.getAppointmentDate());
-
-
-        return repository.save(existingAppointment);
+        return appointmentService.updateAppointment(id, updatedAppointment);
     }
 
     // DELETE: Delete appointment by ID
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteAppointment(@PathVariable Long id) {
-        Appointment existingAppointment = repository.findById(id)
-                .orElseThrow(() -> new AppointmentNotFoundException("Appointment not found with id: " + id));
-
-        repository.delete(existingAppointment);
+        appointmentService.deleteAppointment(id);
         return ResponseEntity.ok("Appointment deleted successfully.");
     }
 }

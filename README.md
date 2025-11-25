@@ -69,3 +69,8 @@ A fully designed and developed personal full-stack web application that delivers
 ![Screenshot (850)](https://github.com/user-attachments/assets/e4df9dde-b1fe-4489-84cc-68e4379c6d60)
 
 ![Screenshot (851)](https://github.com/user-attachments/assets/8078e70b-6478-4266-a515-4d4a8483de8a)
+
+## SOLID & Refactoring Guidance
+
+See the repository documentation on design and refactoring: `docs/SOLID_and_Refactoring.md` for SOLID principles, concrete suggestions, and prioritized refactor tasks for both backend and frontend.
+
